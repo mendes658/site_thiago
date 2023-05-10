@@ -9,6 +9,27 @@
     <title>Thiago de Jesus</title>
 </head>
 <body>
+    <div id="sidebar">
+            <div class="row sidebar-row" onclick="goToLink('./main.html')">
+                <button type="button" class="btn btn-link link"><a href="main.html" class="link"><b>Home</b></a></button>        
+            </div>
+            <div class="row sidebar-row" onclick="goToLink('./publications.html')">
+                <button type="button" class="btn btn-link link"><a href="./routes/publications.html" class="link">Publications</a></button>
+            </div>
+            <div class="row sidebar-row">
+                <button type="button" class="btn btn-link link"><a href="./routes/projects.html" class="link">Projects</a></button>
+            </div>
+            <div class="row sidebar-row">
+                <button type="button" class="btn btn-link link"><a href="./routes/courses.html" class="link">Courses</a></button>
+            </div>
+            <div class="row sidebar-row">
+                <button type="button" class="btn btn-link link"> <a href="./routes/students.html" class="link">Students</a></button>
+            </div>
+            <div class="row sidebar-row">
+                <button type="button" class="btn btn-link link"><a href="./routes/links.html" class="link">Links</a></button>
+            </div>
+    </div>
+
     <div class="container-md main">
         <div class="row">
             <div class="col" style="text-align: center; min-width: fit-content;">
@@ -66,7 +87,18 @@
             background-size: auto;
             background-color: grey;
         }
-
+        #sidebar{
+            position: fixed;
+            width: 150px;
+            height: 100vh;
+            box-shadow: 2px 0px 2px grey;
+            margin-top: 0;
+            padding-top: 0;
+            background-color: rgba(255, 255, 255, 0.897);
+            z-index: 100;
+            overflow-x: hidden;
+            transition: width 0.8s;
+        }
         .main{
             max-width: 600px;
             margin-top: 10px;
@@ -109,5 +141,36 @@
             bottom: 0;
             position: absolute;
         }
+        .sidebar-row{
+            border-color: black;
+            border-width: 1px;
+            border-style: solid;
+            border-top: 0px;
+            border-left: 0;
+            border-right: 0;
+            height: 40px;
+        }
+        .sidebar-row:hover{
+            background-color: rgba(128, 128, 128, 0.123);
+        }
     </style>
+
+    <script>
+        function show_hide_sidebar(){
+            if (window.innerWidth < 600){
+                document.getElementById("sidebar").style.width = '150px';
+            } else {
+                document.getElementById("sidebar").style.width = '0px';
+            }
+        }
+
+        function goToLink(url){
+            window.location.href = url;
+        }
+
+        show_hide_sidebar();
+
+        window.addEventListener('resize', show_hide_sidebar);
+
+    </script>
 </html>

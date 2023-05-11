@@ -14,20 +14,20 @@
             <div class="row sidebar-row" onclick="goToLink('./main.html')">
                 <button type="button" class="btn btn-link link"><a href="main.html" class="link"><b>Home</b></a></button>        
             </div>
-            <div class="row sidebar-row" onclick="goToLink('./publications.html')">
-                <button type="button" class="btn btn-link link"><a href="./routes/publications.html" class="link">Publications</a></button>
+            <div class="row sidebar-row" onclick="goToLink('./routes/publications.html')">
+                <button type="button" class="btn btn-link link"><a href="routes/publications.html" class="link">Publications</a></button>
             </div>
-            <div class="row sidebar-row">
-                <button type="button" class="btn btn-link link"><a href="./routes/projects.html" class="link">Projects</a></button>
+            <div class="row sidebar-row" onclick="goToLink('./routes/projects.html')">
+                <button type="button" class="btn btn-link link"><a href="routes/projects.html" class="link">Projects</a></button>
             </div>
-            <div class="row sidebar-row">
-                <button type="button" class="btn btn-link link"><a href="./routes/courses.html" class="link">Courses</a></button>
+            <div class="row sidebar-row" onclick="goToLink('./routes/courses.html')">
+                <button type="button" class="btn btn-link link"><a href="routes/courses.html" class="link">Courses</a></button>
             </div>
-            <div class="row sidebar-row">
-                <button type="button" class="btn btn-link link"> <a href="./routes/students.html" class="link">Students</a></button>
+            <div class="row sidebar-row" onclick="goToLink('./routes/students.html')">
+                <button type="button" class="btn btn-link link"> <a href="routes/students.html" class="link">Students</a></button>
             </div>
-            <div class="row sidebar-row">
-                <button type="button" class="btn btn-link link"><a href="./routes/links.html" class="link">Links</a></button>
+            <div class="row sidebar-row" onclick="goToLink('./routes/links.html')">
+                <button type="button" class="btn btn-link link"><a href="routes/links.html" class="link">Links</a></button>
             </div>
             <div class="row" style="height: 40px; padding-top: 15px;">
                 Find me on:
@@ -46,7 +46,7 @@
             </div>
     </div>
 
-    <div class="container-md main">
+    <div class="container-md main" onclick="closeSidebar()">
         <div class="row" id="top-links">
             <div class="col" style="text-align: center; min-width: fit-content;">
                 <a href="http://lattes.cnpq.br/1846614285668988" class="link" target="_blank"><img src="./icons/Lattes.png" alt="Lattes" class="icon">
@@ -105,7 +105,6 @@
         }
         #sidebar{
             position: fixed;
-            width: 0px;
             height: 100vh;
             box-shadow: 2px 0px 2px grey;
             margin-top: 0;
@@ -178,6 +177,7 @@
             width: 30px;
             height: auto;
             position: absolute;
+            margin-top: 10px;
             z-index: 101;
             cursor: pointer;
         }
@@ -222,7 +222,14 @@
             window.location.href = url;
         }
 
+        function closeSidebar(){
+            if (sidebar.style.width == '160px'){
+                showHideSidebar();
+            }
+        }
+
         showSidebarBtnByWindowSize();
+        sidebar.style.width = "0px";
 
         window.addEventListener('resize', showSidebarBtnByWindowSize);
 

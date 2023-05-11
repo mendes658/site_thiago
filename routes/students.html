@@ -7,72 +7,192 @@
     <title>Students</title>
 </head>
 <body>
-    <div class="container-md main">
-        Students placeholder
-        <div class="container-sm bottom-row">
+    <div id="sidebar-btn" onclick="showHideSidebar()"><img src="../icons/bars1.png" alt="open sidebar" class="icon" id="sidebar-icon"></div>
+    <div id="sidebar">
+            <div class="row sidebar-row" onclick="goToLink('../main.html')">
+                <button type="button" class="btn btn-link link"><a href="../main.html" class="link">Home</a></button>        
+            </div>
+            <div class="row sidebar-row" onclick="goToLink('./publications.html')">
+                <button type="button" class="btn btn-link link"><a href="publications.html" class="link">Publications </a></button>
+            </div>
+            <div class="row sidebar-row" onclick="goToLink('./projects.html')">
+                <button type="button" class="btn btn-link link"><a href="projects.html" class="link"> Projects</a></button>
+            </div>
+            <div class="row sidebar-row" onclick="goToLink('./courses.html')">
+                <button type="button" class="btn btn-link link"><a href="courses.html" class="link"> Courses </a></button>
+            </div>
+            <div class="row sidebar-row" onclick="goToLink('./students.html')">
+                <button type="button" class="btn btn-link link"> <a href="students.html" class="link"> <b>Students</b> </a></button>
+            </div>
+            <div class="row sidebar-row" onclick="goToLink('./links.html')">
+                <button type="button" class="btn btn-link link"><a href="links.html" class="link"> Links</a></button>
+            </div>
+            <div class="row" style="height: 40px; padding-top: 15px;">
+                Find me on:
+            </div>
+            <div class="row sidebar-row">
+                <button type="button" class="btn btn-link link"><a href="https://www.linkedin.com/in/thiagocj" class="link" target="_blank"> Linkedin
+                    <img src="../icons/linkedin.png" alt="Linkedin" class="icon-sm"></a></button>
+            </div>
+            <div class="row sidebar-row">
+                <button type="button" class="btn btn-link link"><a href="https://scholar.google.com.br/citations?user=3psJAQoAAAAJ&hl" class="link" target="_blank"> Scholar
+                    <img src="../icons/Scholar.png" alt="Google Scholar" class="icon-sm"></a></button>
+            </div>
+            <div class="row sidebar-row">
+                <button type="button" class="btn btn-link link"><a href="http://lattes.cnpq.br/1846614285668988" class="link" target="_blank"> Lattes
+                    <img src="../icons/Lattes.png" alt="Lattes" class="icon-sm"></a></button>
+            </div>
+    </div>
+
+    <div class="container-md main" onclick="closeSidebar()">
+        <div style="text-align: center;">Students placeholder</div>
+        <div class="container-sm bottom-row" id="bottom-row">
             <div class="row">
                 <div class="btn-group btn-group-md sec-btns" role="group">
                     <button type="button" class="btn btn-link link"><a href="../main.html" class="link">Home</a></button>
-                    <button type="button" class="btn btn-link link"><a href="publications.html" class="link">Publications</a></button>
+                    <button type="button" class="btn btn-link link"><a href="publications.html" class="link">Publications </a></button>
                     <button type="button" class="btn btn-link link"><a href="projects.html" class="link">Projects</a></button>
-                    <button type="button" class="btn btn-link link"><a href="courses.html" class="link">Courses</a></button>
-                    <button type="button" class="btn btn-link link"> <a href="students.html" class="link"><b>Students</b></a></button>
-                    <button type="button" class="btn btn-link link"><a href="links.html" class="link">Links</a></button>
+                    <button type="button" class="btn btn-link link"><a href="courses.html" class="link"> Courses </a></button>
+                    <button type="button" class="btn btn-link link"> <a href="students.html" class="link"> <b>Students</b> </a></button>
+                    <button type="button" class="btn btn-link link"><a href="links.html" class="link"> Links</a></button>
                 </div>
             </div>
         </div>
-
     </div>
 </body>
-    <style>
-        body{
-            background-image: url("../icons/background.png");
-            background-size: auto;
-            background-color: grey;
-        }
+<style>
+    body{
+        background-image: url("../icons/background.png");
+        background-size: auto;
+        background-color: grey;
+    }
 
-        .main{
-            max-width: 600px;
-            margin-top: 10px;
-            padding: 5px;
-            border: 1px;
-            border-color: grey;
-            border-style: solid;
-            box-shadow: 3px 3px 2px grey;
-            background-color: rgba(255, 255, 255, 0.274);
-            min-height: 95vh;
-            position: relative;
-        }
-        .icon{
-            width:35px;
-            height: auto;
-        }
+    #sidebar{
+        position: fixed;
+        height: 100vh;
+        box-shadow: 2px 0px 2px grey;
+        margin-top: 0;
+        padding-top: 0;
+        background-color: rgba(255, 255, 255, 0.897);
+        z-index: 100;
+        overflow-x: hidden;
+        transition: width 0.8s, padding 0.8s;
+    }
+    .main{
+        max-width: 600px;
+        margin-top: 10px;
+        padding: 5px;
+        border: 1px;
+        border-color: grey;
+        border-style: solid;
+        box-shadow: 3px 3px 2px grey;
+        background-color: rgba(255, 255, 255, 0.274);
+        min-height: 95vh;
+        position: relative;
+    }
+    .icon{
+        width:35px;
+        height: auto;
+    }
+    .icon-sm{
+        width: 30px;
+        height: auto;
+    }
 
-        .profile-pic{
-            border-radius: 20px;
-            max-height: 150px;
-            max-width:max-content;
-        }
+    .profile-pic{
+        border-radius: 20px;
+        max-height: 150px;
+        max-width:max-content;
+    }
 
-        .sec-container{
-            padding: 10px;
-            text-align: center;
-        }
-        
-        .sec-btns{
-            max-width: 100%;
-        }
-        
-        .btn-link{
-            padding: 0px;
-        }
-        .link{
-            text-decoration: none;
-        }
-
-        .bottom-row{
-            bottom: 0;
-            position: absolute;
-        }
+    .sec-container{
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .sec-btns{
+        max-width: 100%;
+    }
+    
+    .btn-link{
+        padding-right: 20px;
+        text-align: right;
+    }
+    .link{
+        text-decoration: none;
+    }
+    .bottom-row{
+        bottom: 0;
+        position: absolute;
+    }
+    .sidebar-row{
+        border-color: black;
+        border-width: 1px;
+        border-style: solid;
+        border-top: 0px;
+        border-left: 0;
+        border-right: 0;
+        height: 40px;
+    }
+    .sidebar-row:hover{
+        background-color: rgba(128, 128, 128, 0.123);
+    }
+    #sidebar-btn{
+        width: 30px;
+        height: auto;
+        position: absolute;
+        margin-top: 10px;
+        z-index: 101;
+        cursor: pointer;
+    }
     </style>
+    <script>
+
+        const sidebar = document.getElementById("sidebar");
+        const bottom_row = document.getElementById("bottom-row");
+        const sidebar_btn = document.getElementById("sidebar-btn");
+        const sidebar_icon = document.getElementById("sidebar-icon");
+        const bottom_row_default_display = bottom_row.style.display;
+
+        function showHideSidebar(){
+            if (sidebar.style.width == '0px'){
+                sidebar.style.width = '160px';
+                sidebar.style.paddingLeft = '45px';
+                sidebar_icon.src = "../icons/close.png"
+            } else {
+                sidebar.style.width = '0px';
+                sidebar.style.paddingLeft = '0px';
+                sidebar_icon.src = "../icons/bars1.png"
+            }
+        }
+
+        function showSidebarBtnByWindowSize(){
+            if (window.innerWidth < 600){
+                sidebar_btn.style.display = 'inline-block';
+                bottom_row.style.display = 'none';
+            } else {
+                sidebar_btn.style.display = 'none';
+                bottom_row.style.display = bottom_row_default_display;
+                sidebar.style.width = '0px';
+                sidebar.style.paddingLeft = '0px';
+                sidebar_icon.src = "../icons/bars1.png"
+            }
+        }
+
+        function goToLink(url){
+            window.location.href = url;
+        }
+
+        function closeSidebar(){
+            if (sidebar.style.width == '160px'){
+                showHideSidebar();
+            }
+        }
+
+        showSidebarBtnByWindowSize();
+        sidebar.style.width = "0px";
+
+        window.addEventListener('resize', showSidebarBtnByWindowSize);
+
+    </script>
 </html>

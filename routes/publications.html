@@ -153,6 +153,7 @@
         const sidebar_btn = document.getElementById("sidebar-btn");
         const sidebar_icon = document.getElementById("sidebar-icon");
         const bottom_row_default_display = bottom_row.style.display;
+        var screen_ratio;
 
         function showHideSidebar(){
             if (sidebar.style.width == '0px'){
@@ -167,7 +168,9 @@
         }
 
         function showSidebarBtnByWindowSize(){
-            if (window.innerWidth < 600){
+            screen_ratio = window.innerHeight /window.innerWidth;
+
+            if (screen_ratio > 1){
                 sidebar_btn.style.display = 'inline-block';
                 bottom_row.style.display = 'none';
             } else {
